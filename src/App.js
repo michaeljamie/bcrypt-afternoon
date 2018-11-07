@@ -1,23 +1,23 @@
-import React, { Component } from 'react';
-import './App.css';
-import Header from './Components/Header'
-import Container from './Components/Container/Container'
+import React, { Component } from "react";
+import "./App.css";
+import Header from "./Components/Header";
 
 class App extends Component {
   constructor() {
-    super()
+    super();
     this.state = {
       user: {}
-    }
+    };
+    this.updateUser = this.updateUser.bind(this);
   }
-  updateUser () {
+  updateUser(user) {
     // this should update the user property on state
+    this.setState({ user });
   }
   render() {
     return (
       <div className="App">
-        <Header user={{}} updateUser={()=>{}}/>
-        <Container user={{}}/>
+        <Header user={this.state.user} updateUser={this.updateUser} />
       </div>
     );
   }
